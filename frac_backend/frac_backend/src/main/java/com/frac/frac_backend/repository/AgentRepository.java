@@ -1,4 +1,12 @@
 package com.frac.frac_backend.repository;
 
-public interface AgentRepository {
+import com.frac.frac_backend.entity.Agent;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AgentRepository extends JpaRepository<Agent, Long> {
+
+    boolean existsByEmailIgnoreCase(String email);
+    boolean existsByCompanyNameIgnoreCase(String companyName);
 }
