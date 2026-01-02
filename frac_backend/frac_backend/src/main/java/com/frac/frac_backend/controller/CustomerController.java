@@ -159,7 +159,7 @@ public class CustomerController {
     }
 
     private String saveImage(MultipartFile image) throws IOException {
-        String uploadDir = "uploads/customers"; // Directory to save images
+        String uploadDir = "uploads/customers/customer_"; // Directory to save images
         java.nio.file.Path path = Paths.get(uploadDir);
 
         // Create the directory if it does not exist
