@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "vehicles")
+@Table(name = "frac_vehicles")
 public class Vehicle {
 
     @Id

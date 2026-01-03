@@ -10,5 +10,7 @@ public interface AgentRepository extends JpaRepository<Agent, Long> {
     boolean existsByEmailIgnoreCase(String email);
     boolean existsByCompanyNameIgnoreCase(String companyName);
     boolean existsByUserNameIgnoreCase(String userName);
+    boolean existsByContactNoIgnoreCase(String contactNo);
+    boolean existsByBusinessRegNoIgnoreCase(String businessRegNo);
 
 }

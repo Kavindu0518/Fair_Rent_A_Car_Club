@@ -466,6 +466,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/vehicle")
@@ -583,7 +584,7 @@ public class VehicleController {
 
     // Method to save the image to a directory
     private String saveImage(MultipartFile image) throws IOException {
-        String uploadDir = "uploads/"; // Directory to save images
+        String uploadDir = "uploads/vehicles/vehicle_"; // Directory to save images
         java.nio.file.Path path = Paths.get(uploadDir);
 
         // Create the directory if it does not exist
@@ -591,18 +592,35 @@ public class VehicleController {
             Files.createDirectories(path);
         }
 
-        // Get the image filename
+//        // Get the image filename
+//        String imageName = image.getOriginalFilename();
+//
+//        // Save the image to the directory
+//        java.nio.file.Path filePath = Paths.get(uploadDir + imageName);
+//
+//        // Check if the file already exists (optional, can be removed if you want to overwrite files)
+//        if (Files.exists(filePath)) {
+//            throw new IOException("File already exists: " + imageName);
+//        }
+//
+//        // Copy the image to the specified location
+//        Files.copy(image.getInputStream(), filePath);
+//
+//        return filePath.toString(); // Return the saved file path
+
+        // Get the original image filename
         String imageName = image.getOriginalFilename();
 
+        // Get the file extension (e.g., .jpg, .png)
+        String fileExtension = imageName.substring(imageName.lastIndexOf("."));
+
+        // Generate a unique, short image name using UUID
+        String shortImageName = UUID.randomUUID().toString() + fileExtension;
+
+        // Create the path with the new image name
+        java.nio.file.Path filePath = Paths.get(uploadDir + shortImageName);
+
         // Save the image to the directory
-        java.nio.file.Path filePath = Paths.get(uploadDir + imageName);
-
-        // Check if the file already exists (optional, can be removed if you want to overwrite files)
-        if (Files.exists(filePath)) {
-            throw new IOException("File already exists: " + imageName);
-        }
-
-        // Copy the image to the specified location
         Files.copy(image.getInputStream(), filePath);
 
         return filePath.toString(); // Return the saved file path
