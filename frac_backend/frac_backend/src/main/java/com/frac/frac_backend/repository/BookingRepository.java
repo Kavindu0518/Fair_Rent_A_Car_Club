@@ -1,4 +1,7 @@
 package com.frac.frac_backend.repository;
 
-public interface BookingRepository {
+import com.frac.frac_backend.entity.Booking;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookingRepository extends JpaRepository<Booking, Long> {
 }
