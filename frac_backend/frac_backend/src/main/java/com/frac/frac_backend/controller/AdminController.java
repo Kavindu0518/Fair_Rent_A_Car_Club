@@ -1,5 +1,6 @@
 package com.frac.frac_backend.controller;
 
+import com.frac.frac_backend.dto.AdminLoginDTO;
 import com.frac.frac_backend.dto.AdminInputDTO;
 import com.frac.frac_backend.dto.AdminOutputDTO;
 import com.frac.frac_backend.enums.Gender;
@@ -24,6 +25,17 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginAdmin(@RequestBody AdminLoginDTO loginDTO) {
+        try {
+            AdminOutputDTO adminOutputDTO = adminService.loginAdmin(loginDTO);
+            return ResponseEntity.ok(adminOutputDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Invalid email or password");
+        }
+    }
 
     // POST endpoint to add a new admin
     @PostMapping("/add")
