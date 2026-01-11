@@ -1,5 +1,6 @@
 package com.frac.frac_backend.service.impl;
 
+import com.frac.frac_backend.dto.AdminLoginDTO;
 import com.frac.frac_backend.dto.AdminInputDTO;
 import com.frac.frac_backend.dto.AdminOutputDTO;
 import com.frac.frac_backend.entity.Admin;
@@ -7,6 +8,8 @@ import com.frac.frac_backend.repository.AdminRepository;
 import com.frac.frac_backend.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +19,24 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private AdminRepository adminRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Override
+    public AdminOutputDTO loginAdmin(AdminLoginDTO loginDTO) {
+        Admin admin = adminRepository.findByEmailIgnoreCase(loginDTO.getEmail())
+                .orElseThrow(() -> new RuntimeException("Admin not found"));
+
+        // Check if the password matches
+        if (!passwordEncoder.matches(loginDTO.getPassword(), admin.getPassword())) {
+            throw new RuntimeException("Invalid email or password");
+        }
+
+        // Return the admin details along with a success message
+        return AdminOutputDTO.success("Login successful", admin);
+
+    }
 
     @Override
     public AdminOutputDTO createAdmin(AdminInputDTO dto) {
