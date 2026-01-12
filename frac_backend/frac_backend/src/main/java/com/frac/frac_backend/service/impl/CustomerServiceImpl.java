@@ -1,12 +1,15 @@
 package com.frac.frac_backend.service.impl;
 
+import com.frac.frac_backend.dto.*;
+import com.frac.frac_backend.entity.Customer;
+import com.frac.frac_backend.dto.CustomerLoginDTO;
 import com.frac.frac_backend.dto.CustomerInputDTO;
 import com.frac.frac_backend.dto.CustomerOutputDTO;
-import com.frac.frac_backend.entity.Customer;
 import com.frac.frac_backend.repository.CustomerRepository;
 import com.frac.frac_backend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +19,24 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Override
+    public CustomerOutputDTO loginCustomer(CustomerLoginDTO loginDTO) {
+        Customer customer = customerRepository.findByEmailIgnoreCase(loginDTO.getEmail())
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
+
+        // Check if the password matches
+        if (!passwordEncoder.matches(loginDTO.getPassword(), customer.getPassword())) {
+            throw new RuntimeException("Invalid email or password");
+        }
+
+        // Return the admin details along with a success message
+        return CustomerOutputDTO.success("Login successful", customer);
+
+    }
 
     @Override
     public CustomerOutputDTO createCustomer(CustomerInputDTO dto) {

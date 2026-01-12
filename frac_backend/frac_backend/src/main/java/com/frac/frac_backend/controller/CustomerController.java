@@ -1,7 +1,6 @@
 package com.frac.frac_backend.controller;
 
-import com.frac.frac_backend.dto.CustomerInputDTO;
-import com.frac.frac_backend.dto.CustomerOutputDTO;
+import com.frac.frac_backend.dto.*;
 import com.frac.frac_backend.enums.Gender;
 import com.frac.frac_backend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +24,17 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginCustomer(@RequestBody CustomerLoginDTO loginDTO) {
+        try {
+            CustomerOutputDTO customerOutputDTO = customerService.loginCustomer(loginDTO);
+            return ResponseEntity.ok(customerOutputDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Invalid email or password");
+        }
+    }
 
     // POST endpoint to add a new customer
     @PostMapping("/add")
