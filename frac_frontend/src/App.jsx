@@ -38,16 +38,20 @@
 
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LoginPage from './Pages/Admin/LoginPage';
-import RegisterPage from './Pages/Admin/RegisterPage';
+import AdminLoginPage from './Pages/Admin/LoginPage';
+import AdminRegisterPage from './Pages/Admin/RegisterPage';
+import CustomerLoginPage from './Pages/Customer/LoginPage';
+import CustomerRegisterPage from './Pages/Customer/RegisterPage';
 
 const App = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
-        <Route path="/admin/login" element={<LoginPage />} />
-        <Route path="/admin/register" element={<RegisterPage />} />
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin/register" element={<AdminRegisterPage />} />
+        <Route path="/customer/login" element={<CustomerLoginPage />} />
+        <Route path="/customer/register" element={<CustomerRegisterPage />} />
       </Routes>
     </div>
   );
