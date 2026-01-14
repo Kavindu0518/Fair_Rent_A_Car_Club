@@ -56,7 +56,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "agents")
+@Table(name = "frac_agents")
 public class Agent {
 
     @Id

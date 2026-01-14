@@ -251,8 +251,20 @@ public class AgentServiceImpl implements AgentService {
             throw new RuntimeException("Agent with company name already exists");
         }
 
+        if (agentRepository.existsByUserNameIgnoreCase(dto.getUserName())) {
+            throw new RuntimeException("Agent with username already exists");
+        }
+
         if (agentRepository.existsByEmailIgnoreCase(dto.getEmail())) {
             throw new RuntimeException("Agent with email already exists");
+        }
+
+        if (agentRepository.existsByContactNoIgnoreCase(dto.getContactNo())) {
+            throw new RuntimeException("Agent with contact already exists");
+        }
+
+        if (agentRepository.existsByBusinessRegNoIgnoreCase(dto.getBusinessRegNo())) {
+            throw new RuntimeException("Agent with business registration number  already exists");
         }
 
         // Create a new Agent from DTO and hash password
