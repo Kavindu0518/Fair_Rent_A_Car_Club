@@ -228,6 +228,7 @@
 package com.frac.frac_backend.service.impl;
 
 import com.frac.frac_backend.dto.AgentInputDTO;
+import com.frac.frac_backend.dto.AgentLoginDTO;
 import com.frac.frac_backend.dto.AgentOutputDTO;
 import com.frac.frac_backend.entity.Agent;
 import com.frac.frac_backend.repository.AgentRepository;
@@ -244,6 +245,25 @@ public class AgentServiceImpl implements AgentService {
 
     @Autowired
     private AgentRepository agentRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;  // Autowire BCryptPasswordEncoder
+
+    // Other methods
+
+    @Override
+    public AgentOutputDTO loginAgent(AgentLoginDTO dto) {
+        Agent agent = agentRepository.findByEmailIgnoreCase(dto.getEmail())
+                .orElseThrow(() -> new RuntimeException("Agent not found"));
+
+        // Compare the provided password with the hashed password
+        if (!passwordEncoder.matches(dto.getPassword(), agent.getPassword())) {
+            throw new RuntimeException("Invalid credentials");
+        }
+
+        return mapToOutputDTO(agent);  // Return agent info after successful login
+    }
+
 
     @Override
     public AgentOutputDTO createAgent(AgentInputDTO dto) {
