@@ -103,11 +103,21 @@ public class BookingServiceImpl implements BookingService {
     }
 
     private BookingOutputDTO mapToOutputDTO(Booking booking) {
+
+        String customerName = booking.getCustomer().getFirstName() + " " + booking.getCustomer().getLastName();
+        String agentCompanyName = booking.getAgent().getCompanyName();
+        String vehicleName = booking.getVehicle().getMakeModel() + " (" + booking.getVehicle().getRegNumber() + ")";
+
         return BookingOutputDTO.builder()
                 .id(booking.getId())
                 .customerId(booking.getCustomer().getId())
                 .vehicleId(booking.getVehicle().getId())
                 .agentId(booking.getAgent().getId())
+
+                .customerName(customerName)
+                .agentCompanyName(agentCompanyName)
+                .vehicleName(vehicleName)
+
                 .pickupDate(booking.getPickupDate())
                 .dropOffDate(booking.getDropOffDate())
                 .pickupLocation(booking.getPickupLocation())

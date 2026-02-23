@@ -49,6 +49,9 @@ import CustomerLoginPage from './Pages/Customer/LoginPage';
 import CustomerRegisterPage from './Pages/Customer/RegisterPage';
 import CustomerVehicleViewPage from './Pages/Customer/CustomerVehicleView';
 import CustomerDashboardPage from './Pages/Customer/Dashboard';
+import CustomerPaymentPage from './Pages/Customer/PaymentPage';
+import CustomerPaymentView from './Pages/Customer/CustomerPaymentView';
+
 
 const App = () => {
   return (
@@ -66,6 +69,10 @@ const App = () => {
         <Route path="/customer/register" element={<CustomerRegisterPage />} />
         <Route path="/customer/vehicleview" element={<CustomerVehicleViewPage />} />
         <Route path="/customer/dashboard" element={<CustomerDashboardPage />} />
+        <Route path="/customer/payment" element={<CustomerPaymentPage />} />
+        <Route path="/customer/paymentview" element={<CustomerPaymentView />} />
+
+
       </Routes>
     </div>
   );

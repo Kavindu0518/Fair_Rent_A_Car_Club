@@ -2547,7 +2547,7 @@ const CustomerDashboard = () => {
                                     <a href="/customer/dashboard" className="px-6 py-2 bg-white text-teal-700 font-semibold rounded-lg hover:bg-teal-50 transition duration-200">
                                         Dashboard
                                     </a>
-                                    <a href="/customer/bookings" className="px-6 py-2 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-teal-700 transition duration-200">
+                                    <a href="/customer/payment" className="px-6 py-2 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-teal-700 transition duration-200">
                                         My Bookings
                                     </a>
                                 </>
