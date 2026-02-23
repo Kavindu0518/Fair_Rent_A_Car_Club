@@ -20,6 +20,11 @@ public class BookingOutputDTO {
     private Long vehicleId;
     private Long agentId;
 
+    // ✅ NEW readable info
+    private String customerName;
+    private String agentCompanyName;
+    private String vehicleName;
+
     private LocalDate pickupDate;
     private LocalDate dropOffDate;
     private String pickupLocation;
