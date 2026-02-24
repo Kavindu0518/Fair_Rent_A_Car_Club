@@ -1,34 +1,87 @@
-// import React from 'react'
-// import Home from './Pages/Home'
+// // import React from 'react'
+// // import Home from './Pages/Home'
 
-// const App = () => {
-//   return (
-//     <>
-//         <Home/>
-//     </>
-//   )
-// }
+// // const App = () => {
+// //   return (
+// //     <>
+// //         <Home/>
+// //     </>
+// //   )
+// // }
 
-// export default App
+// // export default App
+
+
+// // import React from 'react';
+// // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// // import LoginPage from './Pages/Admin/LoginPage';
+// // import RegisterPage from './Pages/Admin/RegisterPage';
+
+// // const App = () => {
+// //   return (
+// //     <Router>
+// //       <div className="app">
+// //         <Routes>
+// //           <Route path="/login" element={<LoginPage />} />
+// //           <Route path="/register" element={<RegisterPage />} />
+// //           {/* You can also add a default route or home route */}
+// //           <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
+// //         </Routes>
+// //       </div>
+// //     </Router>
+// //   );
+// // };
+
+// // export default App;
+
 
 
 // import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import LoginPage from './Pages/Admin/LoginPage';
-// import RegisterPage from './Pages/Admin/RegisterPage';
+// import { Routes, Route } from 'react-router-dom';
+// import AdminLoginPage from './Pages/Admin/LoginPage';
+// import AdminRegisterPage from './Pages/Admin/RegisterPage';
+// import VehicleViewPage from './Pages/Admin/VehicleView';
+// import AgentLoginPage from './Pages/Agent/LoginPage';
+// import AgentRegisterPage from './Pages/Agent/RegisterPage';
+// import AgentDashboardPage from './Pages/Agent/DashBoard';
+// import VehicleRegisterPage from './Pages/Vehicle/VehicleRegister';
+// import CustomerLoginPage from './Pages/Customer/LoginPage';
+// import CustomerRegisterPage from './Pages/Customer/RegisterPage';
+// import CustomerVehicleViewPage from './Pages/Customer/CustomerVehicleView';
+// import CustomerDashboardPage from './Pages/Customer/Dashboard';
+// import CustomerPaymentPage from './Pages/Customer/PaymentPage';
+// import CustomerPaymentView from './Pages/Customer/CustomerPaymentView';
+
+// import CustomerMyBookings from './Pages/Customer/CustomerMyBookings'; // Add this import
+
+
 
 // const App = () => {
 //   return (
-//     <Router>
-//       <div className="app">
-//         <Routes>
-//           <Route path="/login" element={<LoginPage />} />
-//           <Route path="/register" element={<RegisterPage />} />
-//           {/* You can also add a default route or home route */}
-//           <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
-//         </Routes>
-//       </div>
-//     </Router>
+//     <div>
+//       <Routes>
+//         <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
+//         <Route path="/admin/login" element={<AdminLoginPage />} />
+//         <Route path="/admin/register" element={<AdminRegisterPage />} />
+//         <Route path="/admin/vehicleview" element={<VehicleViewPage />} />
+//         <Route path="/agent/login" element={<AgentLoginPage />} />
+//         <Route path="/agent/register" element={<AgentRegisterPage />} />
+//         <Route path="/agent/dashboard" element={<AgentDashboardPage />} />
+//         <Route path="/vehicle/register" element={<VehicleRegisterPage />} />
+//         <Route path="/customer/login" element={<CustomerLoginPage />} />
+//         <Route path="/customer/register" element={<CustomerRegisterPage />} />
+//         <Route path="/customer/vehicleview" element={<CustomerVehicleViewPage />} />
+//         <Route path="/customer/dashboard" element={<CustomerDashboardPage />} />
+//         <Route path="/customer/payment" element={<CustomerPaymentPage />} />
+//         <Route path="/customer/paymentview" element={<CustomerPaymentView />} />
+
+
+//         <Route path="/customer/mybookings" element={<CustomerMyBookings />} /> {/* Add this route */}
+
+
+
+//       </Routes>
+//     </div>
 //   );
 // };
 
@@ -36,43 +89,69 @@
 
 
 
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+// Admin Pages
 import AdminLoginPage from './Pages/Admin/LoginPage';
 import AdminRegisterPage from './Pages/Admin/RegisterPage';
 import VehicleViewPage from './Pages/Admin/VehicleView';
+
+// Agent Pages
 import AgentLoginPage from './Pages/Agent/LoginPage';
 import AgentRegisterPage from './Pages/Agent/RegisterPage';
 import AgentDashboardPage from './Pages/Agent/DashBoard';
+
+// Vehicle Pages
 import VehicleRegisterPage from './Pages/Vehicle/VehicleRegister';
+
+// Customer Pages
 import CustomerLoginPage from './Pages/Customer/LoginPage';
 import CustomerRegisterPage from './Pages/Customer/RegisterPage';
-import CustomerVehicleViewPage from './Pages/Customer/CustomerVehicleView';
+// import CustomerVehicleViewPage from './Pages/Customer/CustomerVehicleView';
 import CustomerDashboardPage from './Pages/Customer/Dashboard';
-import CustomerPaymentPage from './Pages/Customer/PaymentPage';
+// import CustomerPaymentPage from './Pages/Customer/PaymentPage';
 import CustomerPaymentView from './Pages/Customer/CustomerPaymentView';
-
+import CustomerMyBookings from './Pages/Customer/CustomerMyBookings';
 
 const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<h1>Welcome to the Home Page</h1>} />
+        {/* Home Route */}
+        <Route path="/" element={<h1 className="text-4xl font-bold text-center mt-20">Welcome to FAIR RENT A CAR</h1>} />
+        
+        {/* Admin Routes */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin/register" element={<AdminRegisterPage />} />
         <Route path="/admin/vehicleview" element={<VehicleViewPage />} />
+        
+        {/* Agent Routes */}
         <Route path="/agent/login" element={<AgentLoginPage />} />
         <Route path="/agent/register" element={<AgentRegisterPage />} />
         <Route path="/agent/dashboard" element={<AgentDashboardPage />} />
+        
+        {/* Vehicle Routes */}
         <Route path="/vehicle/register" element={<VehicleRegisterPage />} />
+        
+        {/* Customer Routes */}
         <Route path="/customer/login" element={<CustomerLoginPage />} />
         <Route path="/customer/register" element={<CustomerRegisterPage />} />
-        <Route path="/customer/vehicleview" element={<CustomerVehicleViewPage />} />
+        {/* <Route path="/customer/vehicleview" element={<CustomerVehicleViewPage />} /> */}
         <Route path="/customer/dashboard" element={<CustomerDashboardPage />} />
-        <Route path="/customer/payment" element={<CustomerPaymentPage />} />
+        {/* <Route path="/customer/payment" element={<CustomerPaymentPage />} /> */}
         <Route path="/customer/paymentview" element={<CustomerPaymentView />} />
-
-
+        <Route path="/customer/mybookings" element={<CustomerMyBookings />} />
+        
+        {/* 404 Not Found Route */}
+        <Route path="*" element={
+          <div className="text-center mt-20">
+            <h1 className="text-4xl font-bold text-red-600 mb-4">404</h1>
+            <p className="text-xl text-gray-600 mb-4">Page Not Found</p>
+            <a href="/" className="text-teal-600 hover:text-teal-800 underline">Go back to Home</a>
+          </div>
+        } />
       </Routes>
     </div>
   );

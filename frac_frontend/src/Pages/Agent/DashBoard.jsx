@@ -2973,7 +2973,7 @@
 // // //                 ).length;
                 
 // // //                 const completed = agentBookings.filter(b => 
-// // //                     b.bookingStatus === 'COMPLETED'
+// // //                     b.bookingStatus === 'PAID'
 // // //                 ).length;
                 
 // // //                 const pending = agentBookings.filter(b => 
@@ -3002,7 +3002,7 @@
 // // //             const mockBookings = [
 // // //                 { id: 1, customer: { firstName: 'John', lastName: 'Doe' }, vehicle: { makeModel: 'Toyota Vios' }, pickupDate: '2026-02-20', dropOffDate: '2026-02-25', bookingStatus: 'CONFIRMED', paymentStatus: 'PAID', totalPrice: 25000 },
 // // //                 { id: 2, customer: { firstName: 'Jane', lastName: 'Smith' }, vehicle: { makeModel: 'Honda Civic' }, pickupDate: '2026-02-21', dropOffDate: '2026-02-23', bookingStatus: 'PENDING', paymentStatus: 'PENDING', totalPrice: 18000 },
-// // //                 { id: 3, customer: { firstName: 'Mike', lastName: 'Johnson' }, vehicle: { makeModel: 'Suzuki Swift' }, pickupDate: '2026-02-22', dropOffDate: '2026-02-24', bookingStatus: 'COMPLETED', paymentStatus: 'PAID', totalPrice: 15000 },
+// // //                 { id: 3, customer: { firstName: 'Mike', lastName: 'Johnson' }, vehicle: { makeModel: 'Suzuki Swift' }, pickupDate: '2026-02-22', dropOffDate: '2026-02-24', bookingStatus: 'PAID', paymentStatus: 'PAID', totalPrice: 15000 },
 // // //                 { id: 4, customer: { firstName: 'Sarah', lastName: 'Williams' }, vehicle: { makeModel: 'Nissan Sunny' }, pickupDate: '2026-02-23', dropOffDate: '2026-02-26', bookingStatus: 'CONFIRMED', paymentStatus: 'PAID', totalPrice: 22000 },
 // // //             ];
             
@@ -3010,7 +3010,7 @@
 // // //             setRecentBookings(mockBookings);
             
 // // //             const active = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED' || b.bookingStatus === 'PENDING').length;
-// // //             const completed = mockBookings.filter(b => b.bookingStatus === 'COMPLETED').length;
+// // //             const completed = mockBookings.filter(b => b.bookingStatus === 'PAID').length;
 // // //             const pending = mockBookings.filter(b => b.bookingStatus === 'PENDING').length;
 // // //             const confirmed = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED').length;
 // // //             const total = mockBookings.reduce((sum, b) => sum + b.totalPrice, 0);
@@ -3062,7 +3062,7 @@
 // // //                 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 
 // // //                 allBookings.forEach(booking => {
-// // //                     if (booking.bookingStatus === 'COMPLETED' || booking.bookingStatus === 'CONFIRMED') {
+// // //                     if (booking.bookingStatus === 'PAID' || booking.bookingStatus === 'CONFIRMED') {
 // // //                         const date = new Date(booking.pickupDate);
 // // //                         const monthIndex = date.getMonth();
 // // //                         const monthName = months[monthIndex];
@@ -3164,7 +3164,7 @@
 // // //         switch(status) {
 // // //             case 'CONFIRMED': return 'bg-green-100 text-green-800';
 // // //             case 'PENDING': return 'bg-yellow-100 text-yellow-800';
-// // //             case 'COMPLETED': return 'bg-blue-100 text-blue-800';
+// // //             case 'PAID': return 'bg-blue-100 text-blue-800';
 // // //             case 'CANCELLED': return 'bg-red-100 text-red-800';
 // // //             case 'Available': return 'bg-green-100 text-green-800';
 // // //             case 'Booked': return 'bg-yellow-100 text-yellow-800';
@@ -3599,7 +3599,7 @@
 // // //                                         <option value="">All Status</option>
 // // //                                         <option value="PENDING">Pending</option>
 // // //                                         <option value="CONFIRMED">Confirmed</option>
-// // //                                         <option value="COMPLETED">Completed</option>
+// // //                                         <option value="PAID">Completed</option>
 // // //                                         <option value="CANCELLED">Cancelled</option>
 // // //                                     </select>
 // // //                                     <input 
@@ -3671,9 +3671,9 @@
 // // //                                                             Confirm
 // // //                                                         </button>
 // // //                                                         <button 
-// // //                                                             onClick={() => handleUpdateBookingStatus(booking.id, 'COMPLETED')}
+// // //                                                             onClick={() => handleUpdateBookingStatus(booking.id, 'PAID')}
 // // //                                                             className="text-blue-600 hover:text-blue-800 mr-2 text-sm"
-// // //                                                             disabled={booking.bookingStatus === 'COMPLETED'}
+// // //                                                             disabled={booking.bookingStatus === 'PAID'}
 // // //                                                         >
 // // //                                                             Complete
 // // //                                                         </button>
@@ -4162,7 +4162,7 @@
 // //                 ).length;
                 
 // //                 const completed = enhancedBookings.filter(b => 
-// //                     b.bookingStatus === 'COMPLETED'
+// //                     b.bookingStatus === 'PAID'
 // //                 ).length;
                 
 // //                 const pending = enhancedBookings.filter(b => 
@@ -4213,7 +4213,7 @@
 // //             setRecentBookings(mockBookings);
             
 // //             const active = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED' || b.bookingStatus === 'PENDING').length;
-// //             const completed = mockBookings.filter(b => b.bookingStatus === 'COMPLETED').length;
+// //             const completed = mockBookings.filter(b => b.bookingStatus === 'PAID').length;
 // //             const pending = mockBookings.filter(b => b.bookingStatus === 'PENDING').length;
 // //             const confirmed = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED').length;
 // //             const total = mockBookings.reduce((sum, b) => sum + b.totalPrice, 0);
@@ -4261,7 +4261,7 @@
 
 // //                 // Add earnings from completed/confirmed bookings
 // //                 bookings.forEach(booking => {
-// //                     if (booking.bookingStatus === 'COMPLETED' || booking.bookingStatus === 'CONFIRMED') {
+// //                     if (booking.bookingStatus === 'PAID' || booking.bookingStatus === 'CONFIRMED') {
 // //                         const date = new Date(booking.pickupDate);
 // //                         const monthKey = `${months[date.getMonth()]} ${date.getFullYear()}`;
                         
@@ -4392,7 +4392,7 @@
 // //         switch(status) {
 // //             case 'CONFIRMED': return 'bg-green-100 text-green-800';
 // //             case 'PENDING': return 'bg-yellow-100 text-yellow-800';
-// //             case 'COMPLETED': return 'bg-blue-100 text-blue-800';
+// //             case 'PAID': return 'bg-blue-100 text-blue-800';
 // //             case 'CANCELLED': return 'bg-red-100 text-red-800';
 // //             case 'Available': return 'bg-green-100 text-green-800';
 // //             case 'Booked': return 'bg-yellow-100 text-yellow-800';
@@ -4832,7 +4832,7 @@
 // //                                         <option value="">All Status</option>
 // //                                         <option value="PENDING">Pending</option>
 // //                                         <option value="CONFIRMED">Confirmed</option>
-// //                                         <option value="COMPLETED">Completed</option>
+// //                                         <option value="PAID">Completed</option>
 // //                                         <option value="CANCELLED">Cancelled</option>
 // //                                     </select>
 // //                                     <input 
@@ -4908,9 +4908,9 @@
 // //                                                             Confirm
 // //                                                         </button>
 // //                                                         <button 
-// //                                                             onClick={() => handleUpdateBookingStatus(booking.id, 'COMPLETED')}
+// //                                                             onClick={() => handleUpdateBookingStatus(booking.id, 'PAID')}
 // //                                                             className="text-blue-600 hover:text-blue-800 mr-2 text-sm"
-// //                                                             disabled={booking.bookingStatus === 'COMPLETED'}
+// //                                                             disabled={booking.bookingStatus === 'PAID'}
 // //                                                         >
 // //                                                             Complete
 // //                                                         </button>
@@ -5404,7 +5404,7 @@
 //                 ).length;
                 
 //                 const completed = enhancedBookings.filter(b => 
-//                     b.bookingStatus === 'COMPLETED'
+//                     b.bookingStatus === 'PAID'
 //                 ).length;
                 
 //                 const pending = enhancedBookings.filter(b => 
@@ -5461,7 +5461,7 @@
 //             setRecentBookings(mockBookings);
             
 //             const active = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED' || b.bookingStatus === 'PENDING').length;
-//             const completed = mockBookings.filter(b => b.bookingStatus === 'COMPLETED').length;
+//             const completed = mockBookings.filter(b => b.bookingStatus === 'PAID').length;
 //             const pending = mockBookings.filter(b => b.bookingStatus === 'PENDING').length;
 //             const confirmed = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED').length;
 //             const total = mockBookings.reduce((sum, b) => sum + b.totalPrice, 0);
@@ -5510,7 +5510,7 @@
 
 //                 // Add earnings from completed/confirmed bookings
 //                 bookings.forEach(booking => {
-//                     if (booking.bookingStatus === 'COMPLETED' || booking.bookingStatus === 'CONFIRMED') {
+//                     if (booking.bookingStatus === 'PAID' || booking.bookingStatus === 'CONFIRMED') {
 //                         const date = new Date(booking.pickupDate);
 //                         const monthKey = `${months[date.getMonth()]} ${date.getFullYear()}`;
                         
@@ -5643,7 +5643,7 @@
 //         switch(status) {
 //             case 'CONFIRMED': return 'bg-green-100 text-green-800';
 //             case 'PENDING': return 'bg-yellow-100 text-yellow-800';
-//             case 'COMPLETED': return 'bg-blue-100 text-blue-800';
+//             case 'PAID': return 'bg-blue-100 text-blue-800';
 //             case 'CANCELLED': return 'bg-red-100 text-red-800';
 //             case 'Available': return 'bg-green-100 text-green-800';
 //             case 'Booked': return 'bg-yellow-100 text-yellow-800';
@@ -6084,7 +6084,7 @@
 //                                         <option value="">All Status</option>
 //                                         <option value="PENDING">Pending</option>
 //                                         <option value="CONFIRMED">Confirmed</option>
-//                                         <option value="COMPLETED">Completed</option>
+//                                         <option value="PAID">Completed</option>
 //                                         <option value="CANCELLED">Cancelled</option>
 //                                     </select>
 //                                     <input 
@@ -6161,9 +6161,9 @@
 //                                                             Confirm
 //                                                         </button>
 //                                                         <button 
-//                                                             onClick={() => handleUpdateBookingStatus(booking.id, 'COMPLETED')}
+//                                                             onClick={() => handleUpdateBookingStatus(booking.id, 'PAID')}
 //                                                             className="text-blue-600 hover:text-blue-800 mr-2 text-sm"
-//                                                             disabled={booking.bookingStatus === 'COMPLETED'}
+//                                                             disabled={booking.bookingStatus === 'PAID'}
 //                                                         >
 //                                                             Complete
 //                                                         </button>
@@ -6518,7 +6518,7 @@ const AgentDashboard = () => {
 
                 // Add earnings from completed/confirmed bookings
                 bookings.forEach(booking => {
-                    if (booking.bookingStatus === 'COMPLETED' || booking.bookingStatus === 'CONFIRMED') {
+                    if (booking.bookingStatus === 'PAID' || booking.bookingStatus === 'CONFIRMED') {
                         const date = new Date(booking.pickupDate);
                         const monthKey = `${months[date.getMonth()]} ${date.getFullYear()}`;
                         
@@ -6694,7 +6694,7 @@ const AgentDashboard = () => {
                 ).length;
                 
                 const completed = enhancedBookings.filter(b => 
-                    b.bookingStatus === 'COMPLETED'
+                    b.bookingStatus === 'PAID'
                 ).length;
                 
                 const pending = enhancedBookings.filter(b => 
@@ -6750,7 +6750,7 @@ const AgentDashboard = () => {
             setRecentBookings(mockBookings);
             
             const active = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED' || b.bookingStatus === 'PENDING').length;
-            const completed = mockBookings.filter(b => b.bookingStatus === 'COMPLETED').length;
+            const completed = mockBookings.filter(b => b.bookingStatus === 'PAID').length;
             const pending = mockBookings.filter(b => b.bookingStatus === 'PENDING').length;
             const confirmed = mockBookings.filter(b => b.bookingStatus === 'CONFIRMED').length;
             const total = mockBookings.reduce((sum, b) => sum + b.totalPrice, 0);
@@ -6896,7 +6896,7 @@ const AgentDashboard = () => {
         switch(status) {
             case 'CONFIRMED': return 'bg-green-100 text-green-800';
             case 'PENDING': return 'bg-yellow-100 text-yellow-800';
-            case 'COMPLETED': return 'bg-blue-100 text-blue-800';
+            case 'PAID': return 'bg-blue-100 text-blue-800';
             case 'CANCELLED': return 'bg-red-100 text-red-800';
             case 'Available': return 'bg-green-100 text-green-800';
             case 'Booked': return 'bg-yellow-100 text-yellow-800';
@@ -7337,7 +7337,7 @@ const AgentDashboard = () => {
                                         <option value="">All Status</option>
                                         <option value="PENDING">Pending</option>
                                         <option value="CONFIRMED">Confirmed</option>
-                                        <option value="COMPLETED">Completed</option>
+                                        <option value="PAID">Completed</option>
                                         <option value="CANCELLED">Cancelled</option>
                                     </select>
                                     <input 
@@ -7414,9 +7414,9 @@ const AgentDashboard = () => {
                                                             Confirm
                                                         </button>
                                                         <button 
-                                                            onClick={() => handleUpdateBookingStatus(booking.id, 'COMPLETED')}
+                                                            onClick={() => handleUpdateBookingStatus(booking.id, 'PAID')}
                                                             className="text-blue-600 hover:text-blue-800 mr-2 text-sm"
-                                                            disabled={booking.bookingStatus === 'COMPLETED'}
+                                                            disabled={booking.bookingStatus === 'PAID'}
                                                         >
                                                             Complete
                                                         </button>
