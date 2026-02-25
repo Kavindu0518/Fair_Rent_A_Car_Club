@@ -87,7 +87,7 @@ const BookingCard = ({ booking, onViewDetails, onMakePayment, onDownloadReceipt 
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
                         <span className="text-lg font-bold text-gray-800">
-                            Booking #{booking.id}
+                            Booking #BK00{booking.id}
                         </span>
                         {getStatusBadge(booking)}
                     </div>
