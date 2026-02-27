@@ -254,6 +254,8 @@ import { Routes, Route } from 'react-router-dom';
 import AdminLoginPage from './Pages/Admin/LoginPage';
 import AdminRegisterPage from './Pages/Admin/RegisterPage';
 import VehicleViewPage from './Pages/Admin/VehicleView';
+import AdminDashboard from './Pages/Admin/Dashboard';
+
 
 // Agent Pages
 import AgentLoginPage from './Pages/Agent/LoginPage';
@@ -284,6 +286,15 @@ const App = () => {
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin/register" element={<AdminRegisterPage />} />
         <Route path="/admin/vehicleview" element={<VehicleViewPage />} />
+
+        // Add these routes:
+<Route path="/admin/dashboard" element={<AdminDashboard />} />
+{/* <Route path="/admin/agents" element={<AdminDashboard />} /> // Will default to agents tab
+<Route path="/admin/customers" element={<AdminDashboard />} />
+<Route path="/admin/vehicles" element={<AdminDashboard />} />
+<Route path="/admin/bookings" element={<AdminDashboard />} />
+<Route path="/admin/reports" element={<AdminDashboard />} />
+<Route path="/admin/settings" element={<AdminDashboard />} /> */}
         
         {/* Agent Routes */}
         <Route path="/agent/login" element={<AgentLoginPage />} />
