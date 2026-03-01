@@ -3610,7 +3610,7 @@ const CustomerDashboard = () => {
                                                 htmlFor={option}
                                                 className="ml-2 text-sm text-gray-700"
                                             >
-                                                {option === 'WITH_DRIVER' ? 'With Driver (+Rs. 1,500/day)' : 'Without Driver'}
+                                                {option === 'WITH_DRIVER' ? 'With Driver (+Rs. 2,500/day)' : 'Without Driver'}
                                             </label>
                                         </div>
                                     ))}
