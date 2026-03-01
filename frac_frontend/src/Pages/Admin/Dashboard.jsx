@@ -205,6 +205,8 @@ import VehicleManagementView from './components/VehicleManagementView';
 import BookingManagementView from './components/BookingManagementView';
 import PaymentManagementView from './components/PaymentManagementView';
 
+const BASE_URL = 'http://localhost:8080';
+
 const AdminDashboard = () => {
     const navigate = useNavigate();
     const [activeMainTab, setActiveMainTab] = useState('overview');
@@ -331,7 +333,7 @@ const AdminDashboard = () => {
                             />
                         )}
 
-                        {activeMainTab === 'vehicle' && (
+                        {/* {activeMainTab === 'vehicle' && (
                             <VehicleManagementView
                                 vehicles={vehicles}
                                 searchTerm={searchTerm}
@@ -343,9 +345,24 @@ const AdminDashboard = () => {
                                 formatCurrency={formatCurrency}
                                 stats={stats}
                             />
-                        )}
+                        )} */}
 
-                        {activeMainTab === 'booking' && (
+{activeMainTab === 'vehicle' && (
+    <VehicleManagementView
+        vehicles={vehicles || []}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        activeSubTab={activeSubTab}
+        setActiveSubTab={setActiveSubTab}
+        onRefresh={fetchAllData}
+        getStatusColor={getStatusColor}
+        formatCurrency={formatCurrency}
+        stats={stats}
+        BASE_URL={BASE_URL}
+    />
+)}
+
+                        {/* {activeMainTab === 'booking' && (
                             <BookingManagementView
                                 bookings={allBookings}
                                 searchTerm={searchTerm}
@@ -358,8 +375,23 @@ const AdminDashboard = () => {
                                 formatDate={formatDate}
                                 stats={stats}
                             />
-                        )}
+                        )} */}
 
+{activeMainTab === 'booking' && (
+    <BookingManagementView
+        bookings={allBookings || []}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        activeSubTab={activeSubTab}
+        setActiveSubTab={setActiveSubTab}
+        onRefresh={fetchAllData}
+        getStatusColor={getStatusColor}
+        formatCurrency={formatCurrency}
+        formatDate={formatDate}
+        stats={stats}
+        BASE_URL={BASE_URL}
+    />
+)}
                         {activeMainTab === 'payment' && (
                             <PaymentManagementView
                                 payments={payments}
