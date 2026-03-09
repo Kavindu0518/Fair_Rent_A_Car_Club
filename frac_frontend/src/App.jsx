@@ -250,6 +250,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import HomePage from './Pages/LandingPage'
+import LandingPage from './Pages/LandingPage';
+import './styles/Toast.css'; // Add this import
+
+
 // Admin Pages
 import AdminLoginPage from './Pages/Admin/LoginPage';
 import AdminRegisterPage from './Pages/Admin/RegisterPage';
@@ -272,6 +277,7 @@ import CustomerRegisterPage from './Pages/Customer/RegisterPage';
 import CustomerDashboardPage from './Pages/Customer/Dashboard';
 import CustomerMyBookings from './Pages/Customer/CustomerMyBookings';
 import CustomerPaymentView from './Pages/Customer/CustomerPaymentView';
+import CustomerProfileEdit from './Pages/Customer/CustomerProfileEdit';
 // import CustomerPaymentPage from './Pages/Customer/PaymentPage'; // Uncomment if you have this component
 // import CustomerVehicleViewPage from './Pages/Customer/CustomerVehicleView'; // Uncomment if you have this component
 
@@ -280,7 +286,9 @@ const App = () => {
     <div>
       <Routes>
         {/* Home Route */}
-        <Route path="/" element={<h1 className="text-4xl font-bold text-center mt-20">Welcome to FAIR RENT A CAR</h1>} />
+        {/* <Route path="/" element={<h1 className="text-4xl font-bold text-center mt-20">Welcome to FAIR RENT A CAR</h1>} /> */}
+        <Route path="/" element={<LandingPage />} />
+
         
         {/* Admin Routes */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
@@ -311,6 +319,7 @@ const App = () => {
         <Route path="/customer/dashboard" element={<CustomerDashboardPage />} />
         <Route path="/customer/mybookings" element={<CustomerMyBookings />} />
         <Route path="/customer/paymentview" element={<CustomerPaymentView />} />
+        <Route path="/customer/profile/edit" element={<CustomerProfileEdit />} />
         {/* <Route path="/customer/payment-old" element={<CustomerPaymentPage />} /> */} {/* Commented out - using new payment view */}
         {/* <Route path="/customer/vehicleview" element={<CustomerVehicleViewPage />} /> */} {/* Commented out if not used */}
         
