@@ -343,6 +343,7 @@ const ViewVehicleModal = ({ vehicle, onClose, formatCurrency, BASE_URL }) => {
     // Update agent info and image whenever the vehicle object changes.
     // `fetchAgentDetails` and `getImageUrl` are stable helpers that don't need
     // to be in the dependency list; suppress the eslint warning accordingly.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if (vehicle?.agentId) {
