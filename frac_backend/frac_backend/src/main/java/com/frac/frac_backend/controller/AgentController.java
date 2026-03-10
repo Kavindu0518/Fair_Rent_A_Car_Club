@@ -1,7 +1,6 @@
 package com.frac.frac_backend.controller;
 
-import com.frac.frac_backend.dto.AgentInputDTO;
-import com.frac.frac_backend.dto.AgentOutputDTO;
+import com.frac.frac_backend.dto.*;
 import com.frac.frac_backend.service.AgentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +16,17 @@ public class AgentController {
 
     @Autowired
     private AgentService agentService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginAgent(@RequestBody AgentLoginDTO loginDTO) {
+        try {
+            AgentOutputDTO agentOutputDTO = agentService.loginAgent(loginDTO);
+            return ResponseEntity.ok(agentOutputDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Invalid username or password");
+        }
+    }
 
     @PostMapping("/add")
     public ResponseEntity<AgentOutputDTO> createAgent(@RequestBody AgentInputDTO dto) {
