@@ -2,6 +2,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
+const EXTRA_CHARGES = {
+    DRIVER: 2500,      // Rs. 2,500 per day for driver
+    GPS: 500,          // Rs. 500 per day for GPS
+    CHILD_SEAT: 300    // Rs. 300 per day for child seat
+};
+
 const EditBookingModal = ({ booking, onClose, onSave, formatCurrency, BASE_URL }) => {
     // All hooks must be called unconditionally at the top level - before any conditional logic
     const [formData, setFormData] = useState({
